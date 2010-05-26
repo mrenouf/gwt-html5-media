@@ -1,0 +1,3 @@
+gwt-html5-media is a library for GWT developers who want to interact dynamically with the Video and Audio tags defined by the HTML5 specification. In addition to simple creation, there is a rich set of events fired by these elements which enable responsible, real-time ui feedback for display playback status and custom controls.
+
+Due to the large number of new events, and the implementation of GWT's built-in event handling, these widgets use a custom even dispatch mechanism. This means the events fired by the videos can only be sunk by the widget themselves by adding the approrpriate handler. Help is appreciated in improving this approach or extending it to better fit with the native GWT event system.
