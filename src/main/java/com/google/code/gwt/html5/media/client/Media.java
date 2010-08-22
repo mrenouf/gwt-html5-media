@@ -1,12 +1,12 @@
 /*
  * Copyright 2009 Mark Renouf
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHDIR
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -107,7 +107,7 @@ import com.google.gwt.user.client.EventListener;
 import com.google.gwt.user.client.ui.Widget;
 
 public abstract class Media extends Widget implements HasAbortHandlers,
-    HasCanPlayHandlers, HasCanPlayThroughHandlers, HasDurationChangeHandlers,
+    HasCanPlayHandlers, HasCanPlayThroughHandlers, HasDurationChangeHandlers, 
     HasEmptiedHandlers,
     HasEndedHandlers, HasErrorHandlers, HasLoadStartHandlers,
     HasLoadedDataHandlers, HasLoadedMetadataHandlers, HasPauseHandlers,
@@ -189,11 +189,11 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   public boolean isLoop() {
     return getElement().isLoop();
   }
-
+  
   public double getVolume() {
     return getElement().getVolume();
   }
-
+  
   public void setVolume(double volume) {
     getElement().setVolume(volume);
   }
@@ -205,7 +205,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
    * This setting has no effect if {@linkplain #setAutoplay(boolean) autoplay}
    * is set. Per the current HTML5 spec, the browser is not required to support
    * this feature.
-   *
+   * 
    * @param autobuffer Whether to begin buffering content immediately
    */
   public void setAutobuffer(boolean autobuffer) {
@@ -215,7 +215,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Whether to automatically begin playback of the media resource as soon as
    * it's possible to do so without stopping.
-   *
+   * 
    * @param autoplay Whether the content should begin playing immediately
    */
   public void setAutoplay(boolean autoplay) {
@@ -225,7 +225,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Whether the media element is to seek back to the start of the media
    * resource upon reaching the end.
-   *
+   * 
    * @param loop whether the media element should loop
    */
   public void setLoop(boolean loop) {
@@ -239,7 +239,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
    * seeking), change the volume, and show the media content in manners more
    * suitable to the user (e.g. full-screen video or in an independent resizable
    * window). Other controls may also be made available.
-   *
+   * 
    * @param controls Whether the browser should show playback controls
    */
   public void setControls(boolean controls) {
@@ -280,7 +280,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
    * estimates that if playback were to be started now, the media resource could
    * not be rendered at the current playback rate up to its end without having
    * to stop for further buffering of content.
-   *
+   * 
    * @param handler the {@link CanPlayHandler} to be called
    */
   @Override
@@ -292,7 +292,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
    * Adds a handler to be called when the user agent estimates that if playback were to be started
    * now, the media resource could be rendered at the current playback rate all
    * the way to its end without having to stop for further buffering.
-   *
+   * 
    * @param handler the {@link CanPlayThroughHandler} to be called
    */
   @Override
@@ -309,7 +309,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
 
   /**
    * Adds a handler to be called when the duration attribute has just been updated.
-   *
+   * 
    * @param handler the {@link DurationChangeHandler} to be called
    */
   @Override
@@ -324,7 +324,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
    * method was invoked while the resource selection algorithm was already
    * running, in which case it is fired synchronously during the load() method
    * call).
-   *
+   * 
    * @param handler the {@link EmptiedHandler} to be called
    */
   @Override
@@ -335,7 +335,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when playback has stopped because the end of the media resource was
    * reached.
-   *
+   * 
    * @param handler the {@link EndedHandler} to be called
    */
   @Override
@@ -346,7 +346,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when the user agent begins looking for media data, as part of the
    * resource selection algorithm.
-   *
+   * 
    * @param handler the {@link LoadStartHandler} to be called
    */
   @Override
@@ -357,7 +357,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when the user agent can render the media data at the current
    * playback position for the first time.
-   *
+   * 
    * @param handler the {@link LoadedDataHandler} to be called
    */
   @Override
@@ -368,7 +368,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when the user agent has just determined the duration and dimensions
    * of the media resource.
-   *
+   * 
    * @param handler the {@link LoadedMetadataHandler} to be called
    */
   @Override
@@ -380,7 +380,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when playback has been paused. Fired after the pause method has
    * returned.
-   *
+   * 
    * @param handler the {@link PauseHandler} to be called
    */
   @Override
@@ -390,7 +390,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
 
   /**
    * Adds a handler to be called when playback has begun. Fired after the play() method has returned.
-   *
+   * 
    * @param handler the {@link PlayHandler} to be called
    */
   @Override
@@ -400,7 +400,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
 
   /**
    * Adds a handler to be called when playback has started.
-   *
+   * 
    * @param handler the {@link PlayingHandler} to be called
    */
   @Override
@@ -410,7 +410,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
 
   /**
    * Adds a handler to be called when the user agent is fetching media data.
-   *
+   * 
    * @param handler the {@link ProgressHandler} to be called
    */
   @Override
@@ -421,7 +421,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when either the defaultPlaybackRate or the playbackRate attribute
    * has just been updated.
-   *
+   * 
    * @param handler the {@link RateChangeHandler} to be called
    */
   @Override
@@ -431,7 +431,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
 
   /**
    * Adds a handler to be called when a seek operation has completed.
-   *
+   * 
    * @param handler the {@link SeekedHandler} to be called
    */
   @Override
@@ -441,7 +441,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
 
   /**
    * Adds a handler to be called when the user agent is seeking to a new time position in the stream.
-   *
+   * 
    * @param handler the {@link SeekingHandler} to be called
    */
   @Override
@@ -452,7 +452,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when the user agent is trying to fetch media data, but data is
    * unexpectedly not forthcoming.
-   *
+   * 
    * @param handler the {@link StalledHandler} to be called
    */
   @Override
@@ -463,7 +463,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when the user agent is intentionally not currently fetching media
    * data, but does not have the entire media resource downloaded.
-   *
+   * 
    * @param handler the {@link SuspendHandler} to be called
    */
   @Override
@@ -474,7 +474,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when the current playback position changed as part of normal
    * playback or in an especially interesting way, for example discontinuously.
-   *
+   * 
    * @param handler the {@link TimeUpdateHandler} to be called
    */
   @Override
@@ -485,7 +485,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when either the volume attribute or the muted attribute has changed.
    * Fired after the relevant attribute's setter has returned.
-   *
+   * 
    * @param handler the {@link VolumeChangeHandler} to be called
    */
   @Override
@@ -496,7 +496,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
   /**
    * Adds a handler to be called when playback has stopped because the next frame is not available,
    * but the user agent expects that frame to become available in due course.
-   *
+   * 
    * @param handler the {@link WaitingHandler} to be called
    */
   @Override
@@ -607,19 +607,19 @@ public abstract class Media extends Widget implements HasAbortHandlers,
     if (chMask & 0x00200) if (bits & 0x00200)
         elem.addEventListener('loadedmetadata', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false)
         else elem.removeEventListener('loadedmetadata', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false);
-    if (chMask & 0x00400) if (bits & 0x00400)
+    if (chMask & 0x00400) if (bits & 0x00400) 
         elem.addEventListener('pause', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false)
         else elem.removeEventListener('pause', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false);
-    if (chMask & 0x00800) if (bits & 0x00800)
+    if (chMask & 0x00800) if (bits & 0x00800) 
         elem.addEventListener('play', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false)
         else elem.removeEventListener('play', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false);
-    if (chMask & 0x01000) if (bits & 0x01000)
+    if (chMask & 0x01000) if (bits & 0x01000) 
         elem.addEventListener('playing', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false)
         else elem.removeEventListener('playing', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false);
-    if (chMask & 0x02000) if (bits & 0x02000)
+    if (chMask & 0x02000) if (bits & 0x02000) 
         elem.addEventListener('progress', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false)
         else elem.removeEventListener('progress', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false);
-    if (chMask & 0x04000) if (bits & 0x04000)
+    if (chMask & 0x04000) if (bits & 0x04000) 
         elem.addEventListener('ratechange', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false)
         else elem.removeEventListener('ratechange', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false);
     if (chMask & 0x08000) if (bits & 0x08000)
@@ -630,7 +630,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
         else elem.removeEventListener('seeking', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false);
     if (chMask & 0x20000) if (bits & 0x20000)
         elem.addEventListener('stalled', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false)
-        else elem.removeEventListener('stalled', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false);
+        else elem.removeEventListener('stalled', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false); 
     if (chMask & 0x40000) if (bits & 0x40000)
         elem.addEventListener('suspend', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false)
         else elem.removeEventListener('suspend', @com.google.code.gwt.html5.media.client.Media::dispatchEvent, false);
@@ -715,7 +715,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
    * listened for directly on the Media object generating them ie. they will not
    * be received or handled by any containing elements because these objects
    * won't know how to set the correct event listeners.
-   *
+   * 
    * @param evt
    * @param listener
    */
