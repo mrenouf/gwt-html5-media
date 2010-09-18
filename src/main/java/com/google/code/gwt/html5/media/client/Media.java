@@ -117,6 +117,19 @@ public abstract class Media extends Widget implements HasAbortHandlers,
     HasVolumeChangeHandlers, HasWaitingHandlers, HasAllMouseHandlers,
     HasClickHandlers {
 
+  protected Media(MediaElement mediaElement) {
+    setElement(mediaElement);
+
+    // If this element is already attached to the DOM, call onAttach() to add
+    // event handlers.
+    // TODO(smike): Figure out how to do this correctly, so it's not a one-off
+    // for this class.
+    if (mediaElement.getOwnerDocument() != null) {
+      onAttach();
+    }
+  }
+
+  @Override
   public MediaElement getElement() {
     return super.getElement().<MediaElement> cast();
   }
@@ -535,7 +548,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
 
   void sinkMediaEvents(int eventBitsToAdd) {
     if (isOrWasAttached()) {
-      nativeSinkMediaEvents(getElement(), eventBitsToAdd);
+      nativeSinkMediaEvents(getElement(), eventBitsToAdd | getMediaEventsSunk(getElement()));
     } else {
       mediaEventsToSink |= eventBitsToAdd;
     }
@@ -546,13 +559,18 @@ public abstract class Media extends Widget implements HasAbortHandlers,
    * Widget. This opportunity is taken to lazily attach event handlers to the
    * element.
    */
+  @Override
   protected final void doAttachChildren() {
     int bitsToAdd = mediaEventsToSink;
     mediaEventsToSink = -1;
     if (bitsToAdd > 0) {
-      nativeSinkMediaEvents(getElement(), bitsToAdd);
+      nativeSinkMediaEvents(getElement(), bitsToAdd | getMediaEventsSunk(getElement()));
     }
   }
+
+  public native int getMediaEventsSunk(Element elem) /*-{
+    return elem.__mediaEventBits || 0;
+  }-*/;
 
   native void nativeSinkMediaEvents(Element elem, int bits) /*-{
     var chMask = (elem.__mediaEventBits || 0) ^ bits;
@@ -690,7 +708,7 @@ public abstract class Media extends Widget implements HasAbortHandlers,
    * Dispatches an event to the listener. This bypasses the main GWT event
    * handling system because it's not possible to access from external packages.
    * <p>
-   * Due to this event catpure and event preview will not work properly for
+   * Due to this event capture and event preview will not work properly for
    * media-specific events (existing GWT handled events are not affected). Also,
    * since the sinkEvents system is not extensible media events can only be
    * listened for directly on the Media object generating them ie. they will not

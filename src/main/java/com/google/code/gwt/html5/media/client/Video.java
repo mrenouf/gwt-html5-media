@@ -30,12 +30,16 @@ public class Video extends Media {
   }
 
   public Video() {
-    setElement(VideoElement.create());
+    this(VideoElement.create());
   }
 
   public Video(String src) {
     this();
     setSrc(src);
+  }
+
+  public Video(VideoElement element) {
+    super(element);
   }
 
   public native int getVideoWidth() /*-{

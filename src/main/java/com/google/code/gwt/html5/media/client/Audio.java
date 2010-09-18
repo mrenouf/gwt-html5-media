@@ -31,11 +31,15 @@ public class Audio extends Media {
   }
 
   public Audio() {
-    setElement(AudioElement.create());
+    this(AudioElement.create());
   }
 
   public Audio(String src) {
     this();
     setSrc(src);
+  }
+
+  public Audio(AudioElement element) {
+    super(element);
   }
 }
