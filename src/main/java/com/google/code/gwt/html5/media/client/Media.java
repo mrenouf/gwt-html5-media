@@ -671,7 +671,6 @@ public abstract class Media extends Widget implements HasAbortHandlers,
     }
   }
 
-  @SuppressWarnings("unused")
   private static JavaScriptObject dispatchEvent;
 
   /**
@@ -701,7 +700,6 @@ public abstract class Media extends Widget implements HasAbortHandlers,
    * @param evt
    * @param listener
    */
-  @SuppressWarnings("unused")
   private static void dispatchMediaEvent(Event evt, EventListener listener) {
     // Pass the event to the listener.
     listener.onBrowserEvent(evt);
